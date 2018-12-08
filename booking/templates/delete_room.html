@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "utf-8">
+        <style>
+            body { background-color: #eee; }
+            table { border-collapse: collapse; }
+            table, tr, td, th { border: 2px solid black; padding: 5px; }
+            h1 { color: brown; }
+            a { color: green; text-decoration: none; }
+            a:hover { color: lightgreen; }
+            tr:hover { background-color: lemonchiffon; cursor: pointer; }
+            footer { border-top: 1px solid #888; margin-top: 20px; font-style: italic; font-size: 11px;}
+             ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            }
+
+            li {
+            float: left;
+            }
+
+            li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 10px 14px;
+            text-decoration: none;
+            }
+
+            /* Change the link color to #111 (black) on hover */
+            li a:hover {
+            background-color: #111;
+            }
+        </style>
+        <title>
+        {% block title %}
+            Delete room
+        {% endblock %}
+        </title>
+    </head>
+    <form action="" method="POST">
+<body>
+<h2>Room Deleter</h2>
+        <ul>
+        <li><a href="/" class="button">Main page</a> <br></li>
+        </ul>
+        <br>
+        <table>
+        <tr><th>Select room to delete</th></tr>
+            <tr>
+			<td>
+                <select name="room_name">
+                    {% for i in room %}
+                    <option>{{ i.name }}</option>
+                    {% endfor %}
+                </select>
+
+            </td>
+            <tr/>
+        </table>
+    <center><input type="submit" value="Delete room"/></center>
+</body>
+    </form>
+</html>

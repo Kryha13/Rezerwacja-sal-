@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "utf-8">
+        <style>
+            body { background-color: #eee; }
+            table { border-collapse: collapse; }
+            table, tr, td, th { border: 2px solid black; padding: 5px; }
+            h1 { color: brown; }
+            a { color: green; text-decoration: none; }
+            a:hover { color: lightgreen; }
+            tr:hover { background-color: lemonchiffon; cursor: pointer; }
+            footer { border-top: 1px solid #888; margin-top: 20px; font-style: italic; font-size: 11px;}
+             ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            }
+
+            li {
+            float: left;
+            }
+
+            li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 10px 14px;
+            text-decoration: none;
+            }
+
+            /* Change the link color to #111 (black) on hover */
+            li a:hover {
+            background-color: #111;
+            }
+        </style>
+        <title>
+        {% block title %}
+            Create new room
+        {% endblock %}
+        </title>
+    </head>
+    <form action="" method="POST">
+<body>
+
+<h1>Room Creator</h1>
+        <ul>
+        <li><a href="/" class="button">Main page</a> <br></li>
+        </ul>
+        <br>
+        <table>
+        <tr><th>Name</th><th>Capacity</th><th>Projector</th></tr>
+			<td>
+                <input type="text" name="room_name"/>
+            </td>
+            <td>
+                <input type="number" name="room_capacity"/>
+            </td>
+            <td>
+                <select name="projector">
+                    <option name="True">True</option>
+                    <option name="False">False</option>
+                </select>
+            </td>
+            <tr/>
+        </table>
+    <center><input type="submit" value="Add room"/></center>
+</body>
+    </form>
+</html>
