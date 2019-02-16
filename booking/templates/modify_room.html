@@ -38,34 +38,52 @@
         </style>
         <title>
         {% block title %}
-            Delete room
+            Modify room
         {% endblock %}
         </title>
     </head>
     <form action="" method="POST">
 <body>
-<center><h2>Delete Room</h2></center>
+
+<center><h2>Modify room</h2></center>
         <ul>
         <li><a href="/" class="button">Back to main page</a> <br></li>
         </ul>
         <br>
         <center>
         <table>
-        <tr><th>Select room to delete</th></tr>
+        <tr><th>ID</th><th>Room</th><th>Capacity</th><th>Projector</th><th>Booked</th></tr>
+            <tr><td>{{ room.id }}</td>
+                <td>{{ room.name }}</td>
+                <td>{{ room.capacity }}</td>
+                <td>{{ room.projector }}</td>
+            </tr>
+        </table>
+        </center>
+        <p></p>
+        <center>
+        <table>
+            <tr><th colspan="2">Fill the gaps with new values</th></tr>
+            <tr><th>Name</th><th>Capacity</th><th>Projector</th></tr>
             <tr>
-			<td>
-                <select name="room_name">
-                    {% for i in room %}
-                    <option>{{ i.name }}</option>
-                    {% endfor %}
+                <td>
+                <input type="text" name = "room_name">
+            </td>
+            <td>
+                <input type="number" name="room_capacity"/>
+            </td>
+            <td>
+                <select name="projector">
+                    <option name="True">True</option>
+                    <option name="False">False</option>
                 </select>
-
             </td>
             <tr/>
         </table>
         </center>
         <p></p>
-    <center><input type="submit" value="Delete room"/></center>
+    <center><input type="submit" value="Save changes"/></center>
 </body>
     </form>
 </html>
+

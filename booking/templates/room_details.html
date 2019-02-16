@@ -38,34 +38,26 @@
         </style>
         <title>
         {% block title %}
-            Delete room
+            Room details
         {% endblock %}
         </title>
     </head>
     <form action="" method="POST">
 <body>
-<center><h2>Delete Room</h2></center>
+<center><h2>Room Details</h2></center>
         <ul>
         <li><a href="/" class="button">Back to main page</a> <br></li>
         </ul>
         <br>
         <center>
         <table>
-        <tr><th>Select room to delete</th></tr>
-            <tr>
-			<td>
-                <select name="room_name">
-                    {% for i in room %}
-                    <option>{{ i.name }}</option>
-                    {% endfor %}
-                </select>
-
-            </td>
-            <tr/>
+        <tr><th>ID</th><th>Room</th><th>Capacity</th><th>Projector</th><th>Booked</th></tr>
+            <tr><td>{{ room.id }}</td>
+                <td>{{ room.name }}</td>
+                <td>{{ room.capacity }}</td>
+                <td>{{ room.projector }}</td>
+            </tr>
         </table>
-        </center>
-        <p></p>
-    <center><input type="submit" value="Delete room"/></center>
 </body>
     </form>
 </html>
