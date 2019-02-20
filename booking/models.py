@@ -7,7 +7,7 @@ from rezerwacja.settings import DATE_INPUT_FORMATS
 # Create your models here.
 
 
-def validate_date(booked_from):
+def validate_date(self, booked_from):
     if booked_from < timezone.now().date:
         raise ValidationError("Date cannot be in the past")
 
@@ -35,8 +35,12 @@ class Booked(models.Model):
 
         overlapping_dimension_items_present = booked_items_overlapping_start or booked_items_overlapping_end or booked_items_enveloping
 
+        # past_dates = Booked.objects.filter(booked_from_lte=timezone.now(), booked_to_lte=timezone.now()).exists()
+
         if overlapping_dimension_items_present:
             raise forms.ValidationError('Dates are overlapping with existing bookings')
+        # elif past_dates:
+        #     raise forms.ValidationError('You cannot enter past dates !')
         else:
             super(Booked, self).save(*args, **kwargs)  # Call the "real" save() method.
 

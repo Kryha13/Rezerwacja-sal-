@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from booking.management.commands.private import create_Rooms, create_name, create_capacity, create_projector
+from booking.management.commands._private import create_Rooms, create_name, create_capacity, create_projector
 
 class Command(BaseCommand):
 
