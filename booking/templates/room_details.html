@@ -51,13 +51,15 @@
         <br>
         <center>
         <table>
-        <tr><th>ID</th><th>Room</th><th>Capacity</th><th>Projector</th><th>Booked</th></tr>
+        <tr><th>ID</th><th>Room</th><th>Capacity</th><th>Projector</th></tr>
             <tr><td>{{ room.id }}</td>
                 <td>{{ room.name }}</td>
                 <td>{{ room.capacity }}</td>
                 <td>{{ room.projector }}</td>
             </tr>
         </table>
+            <p></p>
+            <center><a href="/room/book/{{ room.id }}">Book this room</a> </h3></center>
         {% block footer %}
         <footer>
         	Copyright by Kryha13

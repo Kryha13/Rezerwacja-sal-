@@ -70,13 +70,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rezerwacja.wsgi.application'
 
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
+
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'NAME': 'Booking', ## nazwa bazy danych
+        'NAME': 'rooms', ## nazwa bazy danych
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'postgres',
         'PASSWORD': 'coderslab',

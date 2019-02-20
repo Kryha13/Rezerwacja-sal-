@@ -3,7 +3,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.views import View
 from booking.models import Room, Booked
-
 # Create your views here.
 
 
@@ -43,7 +42,8 @@ def delete_room(request):
         r = Room.objects.get(name=name)
         r.delete()
 
-        return render(request, 'delete_room.html', {'delete_room': delete_room})
+    return render(request, 'delete_room.html', {'delete_room': delete_room})
+
 
 @csrf_exempt
 def room_details(request, room_id):
@@ -77,3 +77,32 @@ def modify_room(request, room_id):
         }
 
     return render(request, 'modify_room.html', ctx, {'modify_room': new_room})
+
+@csrf_exempt
+def book_room(request, room_id):
+    if request.method == 'GET':
+        room = Room.objects.get(pk=room_id)
+        book = Booked.objects.filter(room_id=room_id)
+        ctx = {
+            'room': room,
+            'book': book,
+        }
+        return render(request, 'book_room.html', ctx)
+    else:
+        room = Room.objects.get(pk=room_id)
+        book = Booked.objects.filter(room_id=room_id)
+        book_from = request.POST.get('booked_from')
+        book_to = request.POST.get('booked_to')
+
+        b = Booked()
+        b.booked_from = book_from
+        b.booked_to = book_to
+        b.room_id = room_id
+        b.save()
+        ctx = {
+            'room': room,
+            'book': book,
+        }
+
+    return render(request, 'book_room.html', ctx, {'book_room': new_room})
+

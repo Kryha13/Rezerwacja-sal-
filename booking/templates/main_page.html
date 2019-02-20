@@ -52,25 +52,22 @@
         </ul>
         <br>
         <table>
-        <tr><th>ID</th><th>Room</th><th>Capacity</th><th>Projector</th></tr>
+        <tr><th>ID</th><th>Room</th><th>Capacity</th><th colspan="2">Operations</th> </tr>
         {% for i in room %}
             <td>
                 {{ i.id }}
             </td>
 			<td>
-                {{ i.name }}
+                <a href="room/details/{{ i.id }}">{{ i.name }}</a> <br>
             </td>
             <td>
                 {{ i.capacity }}
             </td>
             <td>
-                {{ i.projector }}
-            </td>
-            <td>
-                <a href="room/details/{{ i.id }}">Show room details</a> <br>
-            </td>
-            <td>
                  <a href="room/modify/{{ i.id }}">Modify room</a> <br>
+            </td>
+            <td>
+                 <a href="room/delete/{{ i.id }}"><input type="submit" value="Delete room"/></a> <br>
             </td>
 		</tr>
             {% endfor %}
